@@ -21,18 +21,53 @@ const numbersArray2 = [24, 27, 30, 33, 36]
 
 // b) Create the function that makes the test pass.
 
+//Template  Red --> Green --> Refactor : 
+// describe("funcname", () => {
+//     it("", () => {
+//       expect(input).toEqual(output)
+//     })
+//   })
+
 // --------------------1) Create a function that takes a object as an argument and decides if the number inside it is evenly divisible by three or not.
 
 // a) Create a test with expect statements for each of the variables provided.
 
-const object1 = { number: 15 }
-// Expected output: "15 is divisible by three"
-const object2 = { number: 0 }
-// Expected output: "0 is divisible by three"
-const object3 = { number: -7 }
-// Expected output: "-7 is not divisible by three"
+
+describe("isItDivisableBy3", () => {
+    it("that takes a object as an argument and decides if the number inside it is evenly divisible by three or not." , () => {
+        const object1 = { number: 15 }
+        // Expected output: "15 is divisible by three"
+        const object2 = { number: 0 }
+        // Expected output: "0 is divisible by three"
+        const object3 = { number: -7 }
+        // Expected output: "-7 is not divisible by three"
+        expect(isItDivisableBy3(object1.number)).toEqual("15 is divisible by three")
+        expect(isItDivisableBy3(object2.number)).toEqual("0 is divisible by three")
+        expect(isItDivisableBy3(object1.number)).toEqual("-7 is not divisible by three")
+    })
+  })
+
+  //Test Suites: 1 failed, 1 total GOOD FAIL! YAY!
 
 // b) Create the function that makes the test pass.
+//PsudoCode:
+  //1. creat a function called isItDivisableBy3 - one peramiter (number)
+  //2. use if statement to create conditional to check if input is divisable by 3 (modulo- % 3 === 0)
+    //3. if dividable by 3, return "input is divisable by three"
+  //4. use else if to capture numbers not divisable by three (modulo - !== 0)
+    //5. if not divisable by 3, return "input is NOT divisable by three"
+
+  const isItDivisableBy3 = (object) => {
+    if (object.number % 3 === 0) {
+        return `${object.number} is divisable by three` 
+    } else if (object.number % 3 !==0) {
+        return `${object.number} is not divisable by three`
+    } else {
+        return 'Error'
+    }
+  }
+
+
 
 // --------------------2) Create a function that takes in an array of words and returns an array with all the words capitalized.
 
